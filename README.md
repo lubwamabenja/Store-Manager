@@ -11,46 +11,16 @@ Store Manager is a web application that helps store owners manage sales and prod
 * Add products ,quantities and prices
 * setup a user profile
 
+### Description
+```
+Store attendant can search and add products to buyer’s cart.
+Store attendant can see his/her sale records but can’t modify them.
+App should show available products, quantity and price.
+Store owner can see sales and can filter by attendants.
+Store owner can add, modify and delete products.
 
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
 
 ```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
 
 ## Built With
 
