@@ -3,10 +3,9 @@
 Store Manager is a web application that helps store owners manage sales and product inventory records
 
 ## Getting started
-Install Store Manager, register application and set up connection settings
-
-### Settings
-
+* Install Store Manager
+* register application 
+* set up connection settings
 * Login
 * Create categories
 * Add products ,quantities and prices
