@@ -2,6 +2,7 @@ body{
   font-family:"Arial", Serif;
   background-color:#f4f4f4;
   overflow-x:hidden;
+  padding: 0px 0px 0px;
 }
 
 .navbar{
@@ -129,6 +130,7 @@ body{
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
 .cart input[type=button]{
   font-size: 16px;
   background: linear-gradient(#ffbc00 5%, #ffdd7f 100%);
@@ -136,7 +138,7 @@ body{
   color: #4E4D4B;
   font-weight: bold;
   cursor: pointer;
-  width: 35%;
+  width: 90%;
   border-radius: 5px;
   padding: 10px 0;
   outline:none;
@@ -150,7 +152,7 @@ background: linear-gradient(#ffdd7f 5%, #ffbc00 100%);
 }
 
 .cart input[type=text],input[type=number]{
-  width: 35%;
+  width: 90%;
   height: 30px;
   padding: 5px;
   margin-bottom: 25px;
@@ -160,22 +162,80 @@ background: linear-gradient(#ffdd7f 5%, #ffbc00 100%);
   font-size: 16px;
   border-radius: 5px;
 }
+.cart input[type=date]{
+  width: 70%;
+  border-radius: 5px;
+  color: purple;
+  height: 20px;
+}
+.categories{
+  padding-top: 0px;
+}
 
-table {
+.categories select{
+  background-color:#fff;
+  border-style: none;
+  border-radius: 20px;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 16px;
+  width: 110%;
+}
+.records{
+  margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+    float: left;
+    vertical-align: 10px;
+   }
+.records caption{
+    font-weight: bold;
+    font-size: 30px;
+  }
+/*division which includes all available products*/
+.prod input[type=button] {
+  background-color: purple;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100px;
+  border-radius: 5px;
+  padding: 10px 0;
+  outline:none;
+
+}
+.prod select{
+  background-color:#fff;
+  border-color:purple;
+  border-radius: 20px;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 16px;
+  width: 100px;
+
+}
+table
+ {
     border-collapse: collapse;
     width: 100%;
+    border-radius: 20px;
 }
+
 
 th, td {
     text-align: left;
     padding: 8px;
+  
 }
 
 tr:nth-child(even){background-color: #f2f2f2}
 
 th {
-    background-color: purple;
-    color: white;
+    
+    color: purple;
+    width: 15%;
 }
 @media(max-width:568px){
   .navbar-nav{display:none}
