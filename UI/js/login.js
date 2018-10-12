@@ -21,7 +21,8 @@ return false;
 }
 }
 
-//navbar Javascripts
+
+//navbar Javascript
 var i = 0;
 var namearray= new Array();
 var lastarray = new Array();

@@ -127,6 +127,7 @@ body{
     color: black;
 }
 
+
 .dropdown:hover .dropdown-content {
     display: block;
 }
@@ -193,7 +194,7 @@ background: linear-gradient(#ffdd7f 5%, #ffbc00 100%);
     font-weight: bold;
     font-size: 30px;
   }
-/*division which includes all available products*/
+/*division which includes all available products/goods*/
 .prod input[type=button] {
   background-color: purple;
   color: #fff;
