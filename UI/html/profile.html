@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Profile page</title>
+  <link rel="stylesheet" href="../css/stylemenu.css">
+<link rel="stylesheet" href="../css/register.css">
+ <script src="../js/login.js"></script>
+
+</head>
+<body>
+   <nav class="navbar">
+    <span class="open-slide">
+      <a href="#" onclick="openSlideMenu()">
+        <svg width="30" height="30">
+            <path d="M0,5 30,5" stroke="#fff" stroke-width="5"/>
+            <path d="M0,14 30,14" stroke="#fff" stroke-width="5"/>
+            <path d="M0,23 30,23" stroke="#fff" stroke-width="5"/>
+        </svg>
+      </a>
+    </span>
+
+    <ul class="navbar-nav">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="records.html">Records</a></li>
+       
+
+      <li><a href="admin_login.html">Admin</a>
+
+      <div class="dropdown">
+    <button class="dropbtn">Attendants 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Profile</a>
+    </div>
+  </div> 
+</li>
+      <li><a href="index.html">Log out</a></li>
+    </ul>
+  </nav>
+
+  <div id="side-menu" class="side-nav">
+    <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+    <a href="home.html">Home</a>
+    <a href="records.html">Records</a>
+    <a href="products.html">Products</a>
+    <a href="admin_login.html">Admin</a>
+    <a href="profile.html">profile</a>
+    <a href="index.html">LogOut</a>
+
+  </div>
+
+
+<div class="card">
+  <h2 style="text-align:center">User Profile Page</h2>
+  <img src="../images/image.jpg" alt="John" height="150px" width="200px">
+  <table>
+  
+  <th>Makulu Comapanies<th>
+  <tr>
+  <td>Title</td>
+  <td>Branch Attendant</td><tr>
+  <tr><td>Name:</td><td>Lubwama</td></tr>
+  <tr><td>Email:</td><td>lubwama73@gmail.com</td></tr>
+  <tr><td>Total products sold:</td><td>5 cartons</td></tr>
+  <tr><td>Total Sales:</td><td>24,000,000/=</td></tr>
+  <div style="margin: 24px 0;">
+    <a href="#"><i class="fa fa-dribbble"></i></a> 
+    <a href="#"><i class="fa fa-twitter"></i></a>  
+    <a href="#"><i class="fa fa-linkedin"></i></a>  
+    <a href="#"><i class="fa fa-facebook"></i></a> 
+ </div>
+
+</table>
+ <p><button>Contact</button></p>
+</div>
+
+</body>
+</html>

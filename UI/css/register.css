@@ -1,0 +1,167 @@
+* {
+    box-sizing: border-box;
+}
+.row::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+[class*="col-"] {
+    float: left;
+    padding: 5px;
+}
+html {
+    font-family: "Lucida Sans", sans-serif;
+}
+.loginbox {
+    margin-top:0px;
+    margin-bottom: 0px;
+    position: absolute;
+    box-sizing: border-box;
+    padding:70px 30px;
+    font-family: raleway;
+    background-color: white;
+    width:360px;
+
+}
+
+.loginbox input{
+    width:100%;
+    margin-bottom: 20px;
+}
+
+.loginbox input[type=text],input[type=password],input[type=email]{
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+    margin-bottom: 25px;
+    margin-top: 5px;
+    border: 2px solid #ccc;
+    color: #4f4f4f;
+    font-size: 16px;
+    border-radius: 5px;
+}
+.loginbox input[type=button]{
+    font-size: 16px;
+    background: linear-gradient(#ffbc00 5%, #ffdd7f 100%);
+    border: 1px solid #e5a900;
+    color: #4E4D4B;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px;
+    padding: 10px 0;
+    outline:none;
+    }
+.loginbox input[type=button]:hover{
+background: linear-gradient(#ffdd7f 5%, #ffbc00 100%);
+}
+
+.loginbox label{
+    color: #464646;
+    text-shadow: 0 1px 0 #fff;
+    font-size: 14px;
+    font-weight: bold;
+}
+.loginbox a{
+    text-decoration: none;
+}
+.container{overflow: hidden;
+    border: 1px solid green;
+     }
+
+.container input[type=text]{
+  width: 90%;
+  height: 30px;
+  padding: 5px;
+  margin-bottom: 25px;
+  margin-top: 5px;
+  border: 2px solid #ccc;
+  color: #4f4f4f;
+  font-size: 16px;
+  border-radius: 5px;
+}
+.container button{
+  background: linear-gradient(#ffbc00 5%, #ffdd7f 100%);
+  border: 1px solid #e5a900;
+  color: #4E4D4B;
+  font-weight: bold;
+  cursor: pointer;
+  width: 59px;
+  border-radius: 5px;
+  padding: 10px 0;
+  outline:none;
+  }
+.tab {
+    float: left;
+    border-radius: 20px;
+    padding: 20px 15px;
+    margin-top: 100px;
+    margin-left:0px;
+    width: 40%;
+}
+.tab th{
+    color:darkblue;
+    font-size: 20px;
+    font-family: cursive;
+    text-align: left;
+    padding: 5px;
+}
+.tab table td{
+    border:  1px solid purple ;
+    margin-left: 0px;
+}
+.tab-2{margin-left: 50px;}
+.tab tr{transition:all .25s ease-in-out}
+.tab tr:hover{background-color:#EEE;cursor: pointer}
+/* For desktop: */
+.col-6 {width: 50%;}
+/*Profile page*/
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  float: left;
+}
+.card table td{
+  border:1px solid purple;
+  font-weight: bold;
+  color:green;
+  text-align:  left;
+}
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 100%;
+    }
+}

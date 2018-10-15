@@ -21,7 +21,6 @@ return false;
 }
 }
 
-
 //navbar Javascript
 var i = 0;
 var namearray= new Array();
