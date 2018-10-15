@@ -2,15 +2,12 @@
 
 Store Manager is a web application that helps store owners manage sales and product inventory records
 
-## Getting started
-* Install Store Manager
-* register application 
-* set up connection settings
-* Login
-* Create categories
-* Add products ,quantities and prices
-* setup a user profile
 
+
+## Getting started
+* git clone https://github.com/lubwamabenja/Store-Manager.git
+* username: lubwama
+* password: lubwama1
 ### Description
 ```
 Store attendant can search and add products to buyer’s cart.
@@ -24,7 +21,7 @@ Store owner can add, modify and delete products.
 
 ## Built With
 
-* Flask- The web framework used
+* Flask- The web framework used for API's
 * JPython,Postgresql - Dependency Management
 * Html,javascript,Css  - UI Templates
 
