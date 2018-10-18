@@ -1,8 +1,8 @@
 # Store-Manager
 
 Store Manager is a web application that helps store owners manage sales and product inventory records
-* [![Build Status](https://travis-ci.org/lubwamabenja/Store-Manager.svg?branch=features)](https://travis-ci.org/lubwamabenja/Store-Manager)
 
+* [![Build Status](https://travis-ci.org/lubwamabenja/Store-Manager.svg?branch=ft-add-product-161214893)](https://travis-ci.org/lubwamabenja/Store-Manager)
 
 
 ## Getting started
