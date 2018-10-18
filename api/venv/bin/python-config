@@ -1,4 +1,4 @@
-#!/home/lubwama/Store-Manager/api/venv/bin/python
+#!/home/lubwama/project/venv/bin/python
 
 import sys
 import getopt
