@@ -1,7 +1,6 @@
 from flask import Flask, render_template, redirect,request,url_for,session,flash,jsonify,json
 from data_models import products,sales
 from products import *
-from errors import *
 from functools import wraps
 
 app  = Flask(__name__)
@@ -108,6 +107,11 @@ def logout():
 	return redirect(url_for('welcome'))
 	
 
+
 if __name__ == '__main__':
-	app.run(debug=True)
+    app.run(port=8080,debug=True)
+	
+
+
+
 
