@@ -4,7 +4,14 @@ Store Manager is a web application that helps store owners manage sales and prod
 [![Coverage Status](https://coveralls.io/repos/github/lubwamabenja/Store-Manager/badge.svg?branch=features)](https://coveralls.io/github/lubwamabenja/Store-Manager?branch=features)
 [![Maintainability](https://api.codeclimate.com/v1/badges/b62d23c140bf51e17a9f/maintainability)](https://codeclimate.com/github/lubwamabenja/Store-Manager/maintainability)
 [![Build Status](https://travis-ci.org/lubwamabenja/Store-Manager.svg?branch=features)](https://travis-ci.org/lubwamabenja/Store-Manager)
-
+https://travis-ci.org/lubwamabenja/Store-Manager.svg?branch=features
+!https://travis-ci.org/lubwamabenja/Store-Manager.svg?branch=features!:https://travis-ci.org/lubwamabenja/Store-Manager
+{<img src="https://travis-ci.org/lubwamabenja/Store-Manager.svg?branch=features" alt="Build Status" />}[https://travis-ci.org/lubwamabenja/Store-Manager]
+image:https://travis-ci.org/lubwamabenja/Store-Manager.svg?branch=features["Build Status", link="https://travis-ci.org/lubwamabenja/Store-Manager"]
+.. image:: https://travis-ci.org/lubwamabenja/Store-Manager.svg?branch=features
+    :target: https://travis-ci.org/lubwamabenja/Store-Manager
+=for html <a href="https://travis-ci.org/lubwamabenja/Store-Manager"><img src="https://travis-ci.org/lubwamabenja/Store-Manager.svg?branch=features"></a>
+#https://api.travis-ci.org/repos/lubwamabenja/Store-Manager/cc.xml?branch=features
 
 
 ## Getting started
