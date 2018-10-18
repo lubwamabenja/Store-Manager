@@ -1,6 +1,19 @@
 from flask import Flask,request,jsonify,json
 from data_models import products,sales
 
+class Products:
+    def add_products(self):
+        prod_data = json.loads(request.data.decode('utf-8'))
+        product = {
+            'prod_id':prod_data['prod_id'],
+            'prod_name':prod_data['prod_name'],
+            'prod_category':prod_data['prod_category'],
+            'prod_quantity': prod_data['prod_quantity'],
+            'unit_cost': prod_data['unit_cost']
+        }
+        products.append(product)
+        return jsonify(products)
+
 class Sales:
     """ class contains sales functions """
     
@@ -17,22 +30,4 @@ class Sales:
         sales.append(sale_order)
         return jsonify(sales)
 
-    def get_sale(self):
-        #check whether the id was provided in the URL
-        if 'id' in request.args:
-            id = int(request.args['id'])
-        else:
-            return "Error,No sale id field provided"
-        #an empty list for our results
-        results = []
-
-        for sale in sales:
-            if sale['sale_id']==id:
-                results.append(sale)
-        return jsonify(results)
-
-
-
-
-
-
+    

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Admin Page</title>
+  <link rel="stylesheet" href="../css/stylemenu.css">
+  <link rel="stylesheet" type="text/css" href="../css/login.css">
+  <script src="../js/login.js"></script>
+  <style type="text/css">
+   body {
+    background-color: #FFFDD0;
+   }
+
+   </style>
+
+</head>
+<body>
+  <nav class="navbar">
+    <span class="open-slide">
+      <a href="#" onclick="openSlideMenu()">
+        <svg width="30" height="30">
+            <path d="M0,5 30,5" stroke="#fff" stroke-width="5"/>
+            <path d="M0,14 30,14" stroke="#fff" stroke-width="5"/>
+            <path d="M0,23 30,23" stroke="#fff" stroke-width="5"/>
+        </svg>
+      </a>
+    </span>
+
+    <ul class="navbar-nav">
+      <li><a class="selected_item" href="admin.html">Register users</a></li>
+      <li><a href="#">Products</a></li>
+      <li><a href="#">Attendants</a></li>
+      <li><a href="#">Categories</a></li>
+      <li><a href="admin_login.html">LogOut</a></li>
+
+    </ul>
+  </nav>
+
+  <div id="side-menu" class="side-nav">
+    <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+    <a class="selected_item" href="admin.html">Register users</a>
+    <a href="#">Products</a>
+    <a href="#">Attendants</a>
+    <a href="#">Categories</a>
+    <a href="admin_login.html">LogOut</a></li>
+  </div>
+
+  <div id="main">
+ 
+  <div class="loginbox" style="height: 100%; width: 40%; margin-top: 100px; margin-bottom: 100px">  
+  <div class="main">    
+      
+    <h1>Register </h1>      
+    <form id="form_id" method="post" name="myform">
+    <label>First name :</label>
+    <input type="text" name="username" id="username" placeholder="First name"/>
+    <label>Last name :</label>
+    <input type="text" name="username" id="username" placeholder="Last name"/>
+    <label>UserName :</label>
+    <input type="text" name="username" id="username" placeholder="UserName"/>
+    <label>Email :</label>
+    <input type="email" name="username" id="username" placeholder="Email"/>
+    <label>Password :</label>
+    <input type="password" name="password" id="password" placeholder="password"/>
+    <input type="button" value="Register" id="submit" onclick="validate()"/>
+        
+
+      
+
+    </form>
+  </div>
+  </div>
+
+
+
+
+   
+</div>
+
+
+  
+
+</body>
+</html>

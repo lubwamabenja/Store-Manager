@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Home page</title>
+  <link rel="stylesheet" href="../css/stylemenu.css">
+  <script src="../js/login.js"></script>
+
+</head>
+<body>
+  <nav class="navbar">
+    <span class="open-slide">
+      <a href="#" onclick="openSlideMenu()">
+        <svg width="30" height="30">
+            <path d="M0,5 30,5" stroke="#fff" stroke-width="5"/>
+            <path d="M0,14 30,14" stroke="#fff" stroke-width="5"/>
+            <path d="M0,23 30,23" stroke="#fff" stroke-width="5"/>
+        </svg>
+      </a>
+    </span>
+
+    <ul class="navbar-nav">
+      <li><a  style ="background-color: blue" href="home.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="records.html">Records</a></li>
+      <li><a href="profile.html">profile</a>
+
+</li>
+      <li><a href="../../index.html">Log out</a></li>
+    </ul>
+  </nav>
+
+  <div id="side-menu" class="side-nav">
+    <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+    <a  style ="background-color: blue" href="home.html">Home</a>
+    <a href="records.html">Records</a>
+    <a href="products.html">Products</a>
+    <a href="profile.html">profile</a>
+    <a href="../../index.html">LogOut</a>
+
+  </div>
+
+  <div id="main">
+  
+    <h1>Add Products</h1>
+    <div style="overflow-x:auto;" class="cart">
+    <div class="categories">
+    <table style="border-radius: 20px;">
+  <tr>
+   <th>Category</th>
+   <th><select>
+    <option>Snacks</option>
+    <option>bulky</option>
+   </select></th></tr>
+  <tr><th>Product Name:</th><th><input type="text" id="product" name="product"></th></tr>
+   <tr> <th>Quantity: </th><th><input type="number" id="quantity" name="quantity"></th></tr>
+   <tr><th>Price:</th><th><input type ="number" id="price" name="price"></th></tr>
+  </tr>
+  <tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+  
+<td><input type="button" value="Add" onclick="BlankCheck();"></td>
+<td><input type="button" value="Clear" onclick="resetform();"></td>
+</tr>
+</div>
+</table>
+</div>
+</div>
+
+
+<h2>Shopping Cart</h2>
+<div id="output"></div>
+
+
+
+
+</body>
+</html>
