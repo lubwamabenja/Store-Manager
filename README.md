@@ -1,9 +1,7 @@
 # Store-Manager
 
 Store Manager is a web application that helps store owners manage sales and product inventory records
-* [![Coverage Status](https://coveralls.io/repos/github/lubwamabenja/Store-Manager/badge.svg?branch=features)](https://coveralls.io/github/lubwamabenja/Store-Manager?branch=features)
-
-
+* [[![Coverage Status](https://coveralls.io/repos/github/lubwamabenja/Store-Manager/badge.svg?branch=features)](https://coveralls.io/github/lubwamabenja/Store-Manager?branch=features)
 [![Build Status](https://travis-ci.org/lubwamabenja/Store-Manager.svg?branch=ft-add-product-161214893)](https://travis-ci.org/lubwamabenja/Store-Manager)<a href="https://codeclimate.com/github/lubwamabenja/Store-Manager/maintainability"><img src="https://api.codeclimate.com/v1/badges/b62d23c140bf51e17a9f/maintainability" /></a>
 
 
