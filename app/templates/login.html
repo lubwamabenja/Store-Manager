@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Please login</h1>
+<h1>Welcome to my store manager</h1>
+<h2>Please login</h2>
 <br>
 <form action="" method="post">
   <input type="text" placeholder="Username" name="username" value="{{
@@ -9,4 +10,5 @@
     request.form.password }}">
   <input class="btn btn-default" type="submit" value="Login">
 </form>
+<p>username:admin |||| password:admin</p>
 {% endblock %}

@@ -1,7 +1,9 @@
 from flask import Flask, render_template, redirect,request,url_for,session,flash,jsonify,json
 from functools import wraps
 from app import app
-from app.models.models import *
+from app.views.views import *
+from app.models.products import *
+from app.models.sales import *
 
 
 app.secret_key = 'my precious'
@@ -24,14 +26,9 @@ product_data = Products()
 sales_data = Sales()
 
 @app.route('/')
-@login_required
+#@login_required
 def home():
 	return render_template("index.html")
-
-
-@app.route('/welcome')
-def welcome():
-	return render_template("welcome.html")
 
 # Route for handling the login page logic
 @app.route('/login', methods=['GET', 'POST'])
@@ -60,8 +57,8 @@ def return_uniq_product(id):
 
  
 """ This route enables attendant/owner to add products """
-@app.route('/v1/products',methods=['POST'])
-#@login_required
+@app.route('/v1/products/adds',methods=['POST'])
+@login_required
 def add_product():
     product={
             'prod_id':request.json['prod_id'],
@@ -91,8 +88,8 @@ def return_uniq_sale(id):
 
  
 #This route enables attendant/owner to add sales
-@app.route('/v1/sales',methods=['POST'])
-#@login_required
+@app.route('/v1/sales/add',methods=['POST'])
+@login_required
 def add_sales():
     return sales_data.add_sales()
     

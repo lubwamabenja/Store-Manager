@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Welcome to store Manager:</h1>
+<br>
+<p>Click  <a href="/">here  </a> to go home </p>
+<div class="wrappper">
+<table >
+<tr><th>METHOD</th><th>ACTION</th></tr>
+<tr><td><a href="/v1/products">GET</a></td><td>Gets all products in stock</td></tr>
+<tr><td><a href="/v1/products/0">GET</a></td><td>Gets a specific product by ID</td></tr>
+<tr><td><a href="/v1/sales">GET</a></td><td>Gets all sales in the store</td></tr>
+<tr><td><a href="/v1/sales/0">GET</a></td><td>Gets a specific sale by id</td></tr>
+<tr><td><a href="/v1/products/adds">POST</a></td><td>Adds a product to the stock</td></tr>
+<tr><td><a href="/v1/sales/add">POST</a></td><td>Adds a sale to the stock</td></tr>
+</table>
+</div>
+<p>Click  <a href="/logout">Here </a>to logOut</p>
+
+
+
+
+{% endblock %}

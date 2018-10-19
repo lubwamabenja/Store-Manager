@@ -56,4 +56,3 @@ class FlaskTestCase(unittest.TestCase):
 		response = tester.get('/logout',follow_redirects = True)
 		self.assertTrue(b'You need to login first' in response.data)
 
-

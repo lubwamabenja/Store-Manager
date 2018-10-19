@@ -1,0 +1,31 @@
+h1{
+	color: blue;
+}
+p{
+	font-size: 20px;
+}
+
+table{
+	width: 70%;
+	height:400px;
+}
+table tr td{
+	border: 2px solid blue;
+}
+table tr th{
+	background-color: skyblue;
+	color: white;
+	font-size: 20px;
+	text-align: left;
+}
+
+table tr td, a{
+	text-decoration: none;
+	font-size: 20px;
+	color: darkblue;
+}
+table tr td a:hover{
+	color: green;
+	font-style: all;
+
+}
