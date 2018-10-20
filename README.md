@@ -9,6 +9,7 @@ Store Manager is a web application that helps store owners manage sales and prod
 ```
 git clone https://github.com/lubwamabenja/Store-Manager
 install virtual environmennt (virtualenv venv)
+activate by source venv/bin/activate
 pip install -r requirements.txt
 python run.py
 
