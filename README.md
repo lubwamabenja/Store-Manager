@@ -7,21 +7,23 @@ Store Manager is a web application that helps store owners manage sales and prod
 ## Installation
 * run the following commands
 ```
- git clone https://github.com/lubwamabenja/Store-Manager
+git clone https://github.com/lubwamabenja/Store-Manager
 install virtual environmennt (virtualenv venv)
 pip install -r requirements.txt
 python run.py
-* Password = admin
-* Username = admin
+
+Password = admin
+Username = admin
 
 ```
 ## API Endpoints
 	
-  **GET         /v1/products      	 Fetches all products
-    GET         /v1/sales	Fetches    all sales records
-    GET	        /v1/sales/<sale_id>	 Fetches a single sales record by id
-    POST	      /v1/products	       Creates a product
-    POST	      /v1/sales	           Creates a sales order
+* GET         /v1/products      	 Fetches all products
+* GET         /v1/sales	Fetches          all sales records
+* GET	      /v1/products/<prod_id>	 Fetches a single product record by id
+* GET	      /v1/sales/<sale_id>	 Fetches a single sales record by id
+* POST	      /v1/products	         Creates a product
+* POST	      /v1/sales	                 Creates a sales order
     
  * for POST request its better to use  POSTMAN
  
