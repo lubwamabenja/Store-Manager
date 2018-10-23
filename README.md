@@ -2,7 +2,7 @@
 
 Store Manager is a web application that helps store owners manage sales and product inventory records
 * [[![Coverage Status](https://coveralls.io/repos/github/lubwamabenja/Store-Manager/badge.svg?branch=features)](https://coveralls.io/github/lubwamabenja/Store-Manager?branch=features)
-[![Build Status](https://travis-ci.org/lubwamabenja/Store-Manager.svg?branch=ft-add-product-161214893)](https://travis-ci.org/lubwamabenja/Store-Manager)<a href="https://codeclimate.com/github/lubwamabenja/Store-Manager/maintainability"><img src="https://api.codeclimate.com/v1/badges/b62d23c140bf51e17a9f/maintainability" /></a>
+[![Build Status](https://travis-ci.org/lubwamabenja/Store-Manager.svg?branch=ft-add-product-161214893)](https://travis-ci.org/lubwamabenja/Store-Manager)<a href="https://codeclimate.com/github/lubwamabenja/Store-Manager/maintainability"><img src="https://api.codeclimate.com/v1/badges/b62d23c140bf51e17a9f/maintainability" /></a>[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ea7bb4ded21d4c9bab090c9aa4ea0796)](https://www.codacy.com/app/lubwamabenja/Store-Manager?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=lubwamabenja/Store-Manager&amp;utm_campaign=Badge_Grade)
 
 
 
