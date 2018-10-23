@@ -19,7 +19,7 @@ class TestSaleViews(unittest.TestCase):
         response = self.client().post('/v1/sales',
                                       content_type='application/json',
                                       data=json.dumps(post_data))
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, 405)
 
     def test_fetch_all_sales(self):
         # Tests that the end point fetches all sale records
