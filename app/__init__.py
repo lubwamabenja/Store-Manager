@@ -10,12 +10,11 @@ template = {
     "swagger": "2.0",
     "info": {
         "title":
-        "Store Manager API",
+        "Store Manager Application end-points",
         "description":
-        "Store Manager is a web application that helps store owners manage\
-         sales and product inventory records",
+        "Store Manager is a web application that helps store owners manage and\ 		product inventory records.",
         "version":
-        "1.0.0"
+        "v1"
     },
     "schemes": ["http", "https"]
 }
