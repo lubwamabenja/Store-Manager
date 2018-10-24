@@ -51,14 +51,9 @@ Username = admin
  * for POST request its better to use  POSTMAN
  
  
- 
-
-
-
-
-
-## Getting started
-* git clone https://github.com/lubwamabenja/Store-Manager.git
+## UI(user interfaces)
+* Below is the link to my user interfaces which are hosted on github
+* https://lubwamabenja.github.io/Store-Manager/
 * username: lubwama
 * password: lubwama1
 ### Description
