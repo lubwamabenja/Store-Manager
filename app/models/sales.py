@@ -1,17 +1,24 @@
 from flask import Flask,request,json,jsonify
 class Sales:
     """ class contains sales functions """
+    def __init__(self, sale_id, prod_name, prod_quantity,
+                 attendant, price):
+        self.sale_id = sale_id
+        self.prod_name = prod_name
+        self.prod_quantity = prod_quantity
+        self.attendant = attendant
+        self.price = price
+       
     
     def add_sales(self):
         ''' function adds sale records to store '''
         req_data = json.loads(request.data.decode('utf-8'))
         sale_order = {
-            'sale_id':req_data['sale_id'],
-            'prod_name':req_data['prod_name'],
-            'prod_quantity':req_data['prod_quantity'],
-            'attendant':req_data['attendant'],
-            'price':req_data['price']}
-        sales.append(sale_order)
+            'sale_id':req_data['self.sale_id'],
+            'prod_name':req_data['self.prod_name'],
+            'prod_quantity':req_data['self.prod_quantity'],
+            'attendant':req_data['self.attendant'],
+            'price':req_data['self.price']}
         sales.append(sale_order)
         return jsonify(sales)
 

@@ -1,16 +1,13 @@
 from flask import Flask,request,json,jsonify
 class Products:
-    def add_products(self):
-        prod_data = json.loads(request.data.decode('utf-8'))
-        product = {
-            'prod_id':prod_data['prod_id'],
-            'prod_name':prod_data['prod_name'],
-            'prod_category':prod_data['prod_category'],
-            'prod_quantity': prod_data['prod_quantity'],
-            'unit_cost': prod_data['unit_cost']
-        }
-        products.append(product)
-        return jsonify(products)
+
+    def __init__(self, prod_id, prod_name, prod_category,
+                 prod_quantity, unit_cost):
+        self.prod_id = prod_id
+        self.prod_name = prod_name
+        self.prod_category = prod_category
+        self.prod_quantity = prod_quantity
+        self.unit_cost = unit_cost
 
 
 

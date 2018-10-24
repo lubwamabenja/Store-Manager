@@ -21,17 +21,15 @@ def login_required(f):
 			return redirect(url_for('login'))
 
 	return wrap
+    
 
-product_data = Products()
-sales_data = Sales()
-
-@app.route('/')
+@app.route('/v1/')
 #@login_required
 def home():
 	return render_template("index.html")
 
 # Route for handling the login page logic
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/v1/login', methods=['GET', 'POST'])
 def login():
     error = None
     if request.method == 'POST':
@@ -57,15 +55,16 @@ def return_uniq_product(id):
 
  
 """ This route enables attendant/owner to add products """
-@app.route('/v1/products/adds',methods=['POST'])
+@app.route('/v1/products/create',methods=['POST'])
 @login_required
 def add_product():
-    product={
-            'prod_id':request.json['prod_id'],
-            'prod_name':request.json['prod_name'],
-            'prod_category':request.json['prod_category'],
-            'prod_quantity': request.json['prod_quantity'],
-            'unit_cost': request.json['unit_cost']
+    prod_data = json.loads(request.data.decode('utf-8'))
+    product = {
+            'prod_id':prod_data['self.prod_id'],
+            'prod_name':prod_data['self.prod_name'],
+            'prod_category':prod_data['self.prod_category'],
+            'prod_quantity': prod_data['self.prod_quantity'],
+            'unit_cost': prod_data['self.unit_cost']
         }
 
     products.append(product)
@@ -80,6 +79,7 @@ def get_sales():
     return jsonify(sales)
 
 
+''' this route returns a unique sale by id ''' 
 @app.route('/v1/sales/<int:id>',methods=['GET'])
 @login_required
 def return_uniq_sale(id):
@@ -88,14 +88,24 @@ def return_uniq_sale(id):
 
  
 #This route enables attendant/owner to add sales
-@app.route('/v1/sales/add',methods=['POST'])
+@app.route('/v1/sales/create',methods=['POST'])
 @login_required
 def add_sales():
-    return sales_data.add_sales()
+    ''' function adds sale records to store '''
+    req_data = json.loads(request.data.decode('utf-8'))
+    sale_order = {
+        'sale_id':req_data['self.sale_id'],
+        'prod_name':req_data['self.prod_name'],
+        'prod_quantity':req_data['self.prod_quantity'],
+        'attendant':req_data['self.attendant'],
+        'price':req_data['self.price']}
+    sales.append(sale_order)
+    return jsonify(sales)
+
     
 
-
-@app.route('/logout')
+''' this route enables the user to logout '''
+@app.route('/v1/logout')
 @login_required
 def logout():
 	session.pop('logged_in', None)
