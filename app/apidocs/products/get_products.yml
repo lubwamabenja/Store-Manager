@@ -1,0 +1,44 @@
+Endpoint getting all  products
+---
+tags:
+  - Product
+definitions:
+  Product:
+    type: object
+    properties:
+      prod_id:
+        type: integer
+        format: int64
+      prod_name:
+        type: string
+      prod_category:
+        type:string
+      prod_quantity:
+        type: string
+      unit_cost:
+        type: integer
+      
+responses:
+  200:
+    description: Products in store
+    schema:
+      $ref: '#/definitions/Product'
+    examples:
+      [ "Products",
+  [   
+    {
+        'prod_id' : 0,
+        'prod_name':'crisps',
+        'prod_category':'snacks',
+        'prod_quantity':'4 cartons',
+        'unit_cost': 500
+    },
+    {
+        'prod_id': 1,
+        'prod_name':'ethernet',
+        'prod_category':'cables',
+        'prod_quantity':'8 cables',
+        'unit_cost': 10000
+    }
+  ]]
+

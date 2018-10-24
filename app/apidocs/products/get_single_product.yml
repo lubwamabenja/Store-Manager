@@ -1,0 +1,44 @@
+Endpoint to fetch a single product
+---
+  tags:
+    - Product
+  parameters:
+    - name: product_id
+      in: path
+      description: "id for the product to return"
+      required: true
+      type: integer
+      format: int64
+  definitions:
+    Product:
+      type: object
+      properties:
+      prod_id:
+        type: integer
+        format: int64
+      prod_name:
+        type: string
+      prod_category:
+        type: string
+      prod_quantity:
+          type: string
+      unit_cost:
+          type: integer
+            
+        
+  responses:
+    200:
+      description: Fetches a single product
+      schema:
+        $ref: '#/definitions/Product'
+      examples:
+        Product: [{
+        'prod_id' : 0,
+        'prod_name':'crisps',
+        'prod_category':'snacks',
+        'prod_quantity':'4 cartons',
+        'unit_cost':500
+    }]
+    400:
+      description: Index out of range
+
