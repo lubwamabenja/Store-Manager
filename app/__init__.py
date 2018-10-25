@@ -12,7 +12,7 @@ template = {
         "title":
         "Store Manager Application end-points",
         "description":
-        "Store Manager is a web application that helps store owners manage and\ 		product inventory records.",
+        "Store Manager is a web application that helps store owners manage and product inventory records.",
         "version":
         "v1"
     },

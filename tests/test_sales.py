@@ -26,19 +26,19 @@ class TestSaleViews(unittest.TestCase):
         # Tests that the end point fetches all sale records
         response = self.client().get('/v1/sales',
                                      content_type='application/json')
-        self.assertEqual(response.status_code, 500)
+        self.assertEqual(response.status_code, 200)
         self.assertNotEqual(response.status_code,404)
 
     def test_fetch_a_single_record(self):
         # Tests that the end point successfully returns a single sale record
         response = self.client().get('/v1/sales/1',
                                      content_type='application/json')
-        self.assertEqual(response.status_code, 500)
-        self.assertNotEqual(response.status_code,200)
+        self.assertEqual(response.status_code, 200)
+        self.assertNotEqual(response.status_code,500)
 
     def test_fetch_one_sale_id(self):
         # Tests that the function returns invalid for wrong indices
         response = self.client().get('/v1/sales/0',
                                      content_type='application/json')
-        self.assertEqual(response.status_code, 500)
-        self.assertNotEqual(response.status_code,200)
+        self.assertEqual(response.status_code, 200)
+        self.assertNotEqual(response.status_code,500)
