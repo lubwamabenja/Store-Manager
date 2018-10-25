@@ -5,12 +5,8 @@ from app.models.products import *
 from app.models.sales import *
 
 
-
-
 records = Blueprint('records', __name__)
 records.secret_key = 'my precious'
-
-
 
 
 @records.route('/v1/')
@@ -42,9 +38,8 @@ def create_product():
     req_data['prod_quantity'],req_data['prod_category'],
     req_data['unit_cost'])
     products.append(product)
-    return jsonify("Product has been added to stock"), 201
+    return jsonify("Order has been successfully placed"), 201
            
-
 
 
 

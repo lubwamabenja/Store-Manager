@@ -7,6 +7,8 @@ class Sales:
         self.price = price
         self.attendant = attendant
         
+       
+
 
 
 """ this is a list of all sale records """
