@@ -9,16 +9,6 @@ class Products:
         self.unit_cost = unit_cost
 
 
-    def get_records(self):
-        dict = {
-            "prod_id": self.prod_id,
-            "prod_name": self.prod_name,
-            "prod_category": self.prod_category,
-            "prod_quantity": self.prod_quantity,
-            "unit_cost": self.unit_cost
-        }
-        return dict
-        
 
 
 

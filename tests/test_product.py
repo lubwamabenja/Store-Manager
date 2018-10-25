@@ -27,7 +27,7 @@ class TestProductViews(unittest.TestCase):
         response = self.client().get('/v1/products',
                                      content_type='application/json')
         self.assertEqual(response.status_code, 500)
-        self.assertNotEqual(response.status_code,305)
+        self.assertNotEqual(response.status_code,200)
 
     def test_fetch_one_product(self):
         # Tests that the end point successfully returns one product
