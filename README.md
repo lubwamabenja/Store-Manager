@@ -51,6 +51,9 @@ Username = admin
  * for POST request its better to use  POSTMAN
  
  
+## pivotal tracker stories
+* https://www.pivotaltracker.com/n/projects/2203791
+ 
 ## UI(user interfaces)
 * Below is the link to my user interfaces which are hosted on github
 * https://lubwamabenja.github.io/Store-Manager/
@@ -66,6 +69,9 @@ Store owner can add, modify and delete products.
 
 
 ```
+## Heroku
+* The application is hosted on heroku and below is the link
+* https://store-manager-74.herokuapp.com/apidocs/
 
 ## Built With
 
