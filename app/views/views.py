@@ -6,7 +6,6 @@ from app.models.sales import *
 
 
 records = Blueprint('records', __name__)
-records.secret_key = 'my precious'
 
 
 @records.route('/v1/')
