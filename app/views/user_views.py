@@ -1,4 +1,4 @@
-from flask import Flask, Blueprint,render_template, redirect,request,url_for,session,flash,jsonify,json
+from flask import Flask, Blueprint,render_template, redirect,request,url_for,session,flash,jsonify,json,make_response
 from flasgger import swag_from
 from functools import wraps
 import datetime
@@ -6,6 +6,7 @@ import uuid
 from werkzeug.security import generate_password_hash, check_password_hash
 import jwt
 from functools import wraps
+from flask_jwt_extended import (create_access_token,get_jwt_identity, jwt_required)
 
 
 from app.models.database import *
@@ -15,9 +16,6 @@ from app.models.database import *
 user = Blueprint('user', __name__)
  
 db = MyDatabase()
-
-
-
 
 
 @user.route('/v1/users',methods=['POST'])
@@ -79,3 +77,20 @@ def delete_user(user_id):
 
 	db.cur.execute("DELETE  FROM Users WHERE user_id = user_id ")
 	return jsonify({'message': 'User has been deleted'})
+
+@user.route('/v1/login', methods=['POST'])
+def login():
+    user = request.get_json()
+    username = user['username']
+    password = generate_password_hash(user['password'],method='sha256')
+    db.cur.execute("SELECT password,username FROM Users WHERE username=username AND password=password")
+    user = db.cur.fetchone()
+    if not user:
+    	return({'message':'No user found'})
+
+    else:
+    	access_token = create_access_token(identity=username)
+    	return jsonify({
+        'token': access_token
+    	}), 200
+

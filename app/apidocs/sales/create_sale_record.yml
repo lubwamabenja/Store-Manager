@@ -1,0 +1,67 @@
+Endpoint for creating a sale record
+---
+tags:
+  - Sale Record
+consumes:
+  - application/json
+produces:
+  - application/json
+parameters:
+  - name: body
+    in: body
+    description: Sale Record Details
+    required: true
+    schema :
+      $ref: '#/definitions/create_record'
+definitions:
+  Record:
+    type: object
+    properties:
+      sale_id:
+        type: integer
+        format: int64
+      prod_name:
+        type: string
+      prod_quantity:
+          type: string
+      price:
+          type: integer
+      attendant:
+          type: string
+          
+  create_record:
+    type: object
+    properties:
+      sale_id:
+        type: integer
+        example: 2
+      prod_name:
+        type: string
+        example: "ethernet"
+      product_quantity:
+        type: string
+        example: "1 cable"
+      price:
+        type: string
+        example: 10000
+      attendant:
+        type: string
+        example: "lubwama"
+responses:
+  201:
+    description: Sale order created successfully
+    schema:
+      $ref: '#/definitions/Record'
+    examples:
+      [{
+        "message":"Order successfully created"
+      }]
+  400:
+    description: Enter product name
+    description: Enter price of the product
+    description: Enter product quantity
+    description: Product name should contain alphanumerics only
+    description: Price should contain integers only
+
+    
+
