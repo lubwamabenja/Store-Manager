@@ -31,7 +31,7 @@ def create_user():
 	VALUES(%s,%s,False)",(username,hashed_password))
 	return jsonify({'message': 'New user created!'})
 
-'''@user.route('/v1/users',methods=['GET'])
+@user.route('/v1/users',methods=['GET'])
 #@token_required
 def get_all_users():
 	#if not current_user.admin:
@@ -78,4 +78,4 @@ def delete_user(user_id):
 		return jsonify({'message' : 'No user found!'})
 
 	db.cur.execute("DELETE  FROM Users WHERE user_id = user_id ")
-	return jsonify({'message': 'User has been deleted'})'''
+	return jsonify({'message': 'User has been deleted'})
