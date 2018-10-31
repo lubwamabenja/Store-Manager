@@ -1,9 +1,20 @@
 from flask import Flask, redirect
 from flasgger import Swagger
 from app.views.views import records
+from app.views.user_views import user
+from app.views.pro_views import product
+from flask_jwt_extended import JWTManager
+from app.views.sale_views import sale
+import datetime
 
 app = Flask(__name__)
 app.register_blueprint(records)
+app.register_blueprint(user)
+app.register_blueprint(product)
+app.register_blueprint(sale)
+jwt = JWTManager(app)
+app.config['JWT_SECRET_KEY'] = 'lubwama'
+app.config['JWT_ACCESS_TIME_EXPIRES'] = datetime.timedelta(minutes= 30)
 
 # Define a swagger template
 template = {
@@ -26,3 +37,6 @@ swagger = Swagger(app, template=template)
 @app.route('/')
 def index():
     return redirect('/apidocs/')
+
+
+
