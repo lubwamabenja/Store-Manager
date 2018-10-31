@@ -1,0 +1,67 @@
+Endpoint for creating a product
+---
+tags:
+  - Product
+consumes:
+  - application/json
+produces:
+  - application/json
+parameters:
+  - name: body
+    in: body
+    description: Product Details
+    required: true
+    schema :
+      $ref: '#/definitions/create_product'
+definitions:
+  Product:
+    type: object
+    properties:
+      prod_id:
+        type: integer
+        format: int64
+      prod_name:
+        type: string
+      prod_category:
+        type:string
+      prod_quantity:
+        type: string
+      unit_cost:
+        type: integer
+      
+  create_product:
+    type: object
+    properties:
+      prod_id:
+        type: integer
+        example: 0
+      prod_name:
+        type: string
+        example: "crisps"
+      prod_category:
+        type: string
+        example: "snacks"
+      prod_quantity:
+        type: string
+        example: "5 pkts"
+      unit_cost:
+        type: integer
+        example: 2000
+responses:
+  201:
+    description: Product created successfully
+    schema:
+      $ref: '#/definitions/Products'
+    examples:
+      [{
+        "message":"Product successfully created"
+      }]
+  400:
+    description: Enter product name
+    description: Enter price of the product
+    description: Enter product quantity
+    description: Product name should contain alphanumerics only
+    description: Price should contain integers only
+    
+    
+

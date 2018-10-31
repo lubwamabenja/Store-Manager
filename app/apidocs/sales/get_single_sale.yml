@@ -1,0 +1,42 @@
+Endpoint returning a specific sale record
+---
+tags:
+  - Sale Record
+parameters:
+  - name: sale_id
+    in: path
+    description: "Id for the record to return"
+    required: true
+    type: integer
+    format: int64
+definitions:
+  Record:
+    type: object
+    properties:
+      sale_id:
+        type: integer
+        format: int64
+      prod_name:
+        type: string
+      prod_quantity:
+          type: string
+      price:
+          type: integer
+      attendant:
+          type: string
+responses:
+  200:
+    description: Information about a sale record
+    schema:
+      $ref: '#/definitions/Record'
+    examples:
+      Record: [{
+        'sale_id': 0,
+        'prod_name': 'crisps',
+        'prod_quantity':'5 pkts',
+        'price': 2500,
+        'attendant':'john'
+    }]
+  404:
+    description: Sale record does not exist
+  

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sales Records</title>
+  <link rel="stylesheet" href="../css/stylemenu.css">
+  <script src="../js/login.js"></script>
+
+</head>
+<body>
+  <nav class="navbar">
+    <span class="open-slide">
+      <a href="#" onclick="openSlideMenu()">
+        <svg width="30" height="30">
+            <path d="M0,5 30,5" stroke="#fff" stroke-width="5"/>
+            <path d="M0,14 30,14" stroke="#fff" stroke-width="5"/>
+            <path d="M0,23 30,23" stroke="#fff" stroke-width="5"/>
+        </svg>
+      </a>
+    </span>
+
+    <ul class="navbar-nav">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a style ="background-color: blue" href="records.html">Records</a></li>
+       <li><a href="profile.html">profile</a></li>
+      <li><a href="../../index.html">Log out</a></li>
+    </ul>
+  </nav>
+
+  <div id="side-menu" class="side-nav">
+    <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+    <a href="home.html">Home</a>
+    <a href="products.html">Products</a>
+    <a  style ="background-color: blue" href="records.html">Records</a>
+    <a href="profile.html">profile</a>
+    <a href="../../index.html">LogOut</a>
+
+  </div>
+
+  <div id="main">
+  
+    <h1>View Sale records</h1>
+    <div style="overflow-x:auto;" class="cart">
+    <div class="categories">
+    <table style="border-radius: 20px;">
+  <tr>
+   <th>Attendants</th>
+   <th><select>
+    <option>Attendant1</option>
+    <option>Attedant2</option>
+    <option>Attendant3</option>
+   </select></th></tr>
+  <tr><th>From:</th><th><input type="date"" name="date1"></th></tr>
+   <tr> <th>To: </th><th><input type="date"  name="date"></th></tr>
+   
+  </tr>
+  <tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+  
+<td><input type="button" value="Search" onclick="BlankCheck();"></td>
+</tr>
+</div>
+</table>
+</div>
+</div>
+<div class="records" style="overflow-x:auto;">
+  <table>
+    <caption>Sales Records</caption>
+    <tr>
+      <th>Date</th><th>Attendant</th><th>Product</th>
+      <th>Quantity</th><th>Amount</th><th>Discount</th>
+    </tr>
+    <tr><td>14/5/2018</td><td>Attendant1</td><td>sugar</td>
+      <td>2kgs</td><td>8000/=</td><td>0</td>
+    </tr>
+    <tr><td>14/8/2018</td><td>Attendant1</td><td>salt</td>
+      <td>4kgs</td><td>4000/=</td><td>0</td>
+    </tr>
+    <tr><td>16/8/2018</td><td>Attendant1</td><td>soap</td>
+      <td>2bars</td><td>7000/=</td><td>500</td>
+    </tr>
+    <tr><td>17/8/2018</td><td>Attendant1</td><td>vaseline</td>
+      <td>1t</td><td>6700/=</td><td>650</td>
+    </tr>
+    
+  </table>
+</div>
+
+
+
+
+
+</body>
+</html>
