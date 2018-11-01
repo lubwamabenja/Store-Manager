@@ -13,7 +13,7 @@ env:
 
 before_script:
   - sudo psql -c 'CREATE ROLE lubwama SUPERUSER LOGIN CREATEDB;' -U postgres
-  - "psql -c 'create database Store_db;'-U postgres"
+  - "psql -c 'create database Store_db:'-U postgres"
 
 
  
