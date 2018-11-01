@@ -6,14 +6,16 @@ from werkzeug.security import generate_password_hash, check_password_hash
 class MyDatabase():
     def __init__(self):
         try:
-            if os.getenv('APP_SETTINGS') == 'testing':
+            if os.getenv('test_env') == 'testing':
                 self.db = 'test_database'
             else:
                 self.db = 'Store_db'
-            self.conn =  psycopg2.connect("dbname=Store_db user=lubwama password=lubwama1")
+            self.conn =  psycopg2.connect("dbname=Store_db user=lubwama password=lubwama1 host=localhost")
             self.cur = self.conn.cursor()
             self.conn.autocommit =True
-        except:
+            print(self.db)
+        except Exception as e:
+            print(e)
             print("Database connection failed")
                 
     def create_users(self):
