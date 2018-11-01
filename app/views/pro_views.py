@@ -6,7 +6,7 @@ import uuid
 from werkzeug.security import generate_password_hash, check_password_hash
 from functools import wraps
 from flask_jwt_extended import (create_access_token,get_jwt_identity, jwt_required)
-
+from app.models.login import *
 from app.models.database import *
 
 product = Blueprint('product', __name__)
@@ -16,7 +16,7 @@ db = MyDatabase()
 
 
 @product.route('/v2/products',methods=['GET'])
-#@token_required
+@jwt_required
 def get_all_products():
 	db.cur.execute("SELECT * FROM Products")
 	products = db.cur.fetchall()
@@ -28,7 +28,7 @@ def get_all_products():
 
 
 @product.route('/v2/products',methods=['POST'])
-#@token_required
+@jwt_required
 def create_products():
 	data = request.get_json()
 	prod_name = data['prod_name']
@@ -41,19 +41,30 @@ def create_products():
 
 	return jsonify({'message' : "product has been created"})
 
+
+
+
+
 @product.route('/v2/products/<prod_id>',methods=['GET'])
-#@token_required
-def get_one_product(prod_id):
-	db.cur.execute("SELECT * FROM Products WHERE prod_id = prod_id")
+@jwt_required
+def get_one_product_by_id(prod_id):
+	current_user = get_jwt_identity()
+	if not current_user:
+		return jsonify({'message':'you are not logged in yet'})
+	sql = """SELECT * FROM Products WHERE prod_id = %s"""
+	db.cur.execute(sql,(prod_id))
 	product = db.cur.fetchone()
-	if not product:
+	if not products:
 		return jsonify({'message' : 'No product found!'})
-	
-	return jsonify({'product':product})
+	return jsonify({'products':product})
+
+
+
+
 	
 
-@product.route('/v2/products/<prod_id>',methods=['PUT'])
-#@token_required
+@product.route('/v2/products/<int:prod_id>',methods=['PUT'])
+@jwt_required
 def modify_product(prod_id):
 
 	db.cur.execute("SELECT * FROM Products WHERE prod_id = prod_id")
@@ -68,8 +79,11 @@ def modify_product(prod_id):
 
 	return jsonify({'message':'Product has been modified'})
 
+
+
+
 @product.route('/v2/products/<prod_id>',methods=['DELETE'])
-#@token_required
+@jwt_required
 def delete_product(prod_id):
 
 	db.cur.execute("SELECT * FROM Products WHERE prod_id = prod_id")
