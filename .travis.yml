@@ -9,7 +9,7 @@ services:
   - postgresql
 
 before_script:
-  - psql -c "CREATE ROLE lubwama WITH SUPERUSER LOGIN PASSWORD 'lubwama1'-U postgres
+  - sudo psql -c 'CREATE ROLE lubwama SUPERUSER LOGIN CREATEDB;' -U postgres
   - psql -c 'create database Store_db;'-U postgres
 
 
