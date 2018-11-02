@@ -59,18 +59,30 @@ class MyDatabase():
 
     def select(self, table, column, value):
         sql = """
-        SELECT * FROM {} WHERE {}='{}';
+        SELECT * FROM {} WHERE {}={}
+        """.format(table, column, value)
+        print(sql)
+        self.cur.execute(sql)
+        record= self.cur.fetchone()
+
+        return record
+
+    def select_id(self, table, column, value):
+        sql = """
+        SELECT * FROM {} WHERE {}= None;
         """.format(table, column, value)
         self.cur.execute(sql)
         record= self.cur.fetchone()
 
         return record
 
+
     def select_all(self,table):
         sql = '''SELECT * FROM {};'''.format(table)
         self.cur.execute(sql)
         records = self.cur.fetchall()
         return records
+
 
     def update(self,table,property,value1,column,value2):
         sql = '''UPDATE {} SET {} = '{}' WHERE {} = '{}';'''.format(table,property,value1,column,value2)

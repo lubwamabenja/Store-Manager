@@ -4,14 +4,14 @@ from app.models.products import *
 
 class TestProductprod_records(unittest.TestCase):
     def setUp(self):
-        self.prod_record = Products(0,'crisps','snacks','4cartons',500)
+        self.prod_record = Products(4,'crisps','snacks','4cartons',500)
         return self.prod_record
 
     def test_prod_id(self):
         # Tests that the id is equal to the given id
         self.assertNotEqual(self.prod_record.prod_id, 1)
         self.assertNotEqual(self.prod_record.prod_id, "str")
-        self.assertEqual(self.prod_record.prod_id, 0)
+        self.assertEqual(self.prod_record.prod_id, 4)
 
     def test_prod_id_data_type(self):
         self.assertNotIsInstance(self.prod_record.prod_id, str)

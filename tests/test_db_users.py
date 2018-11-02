@@ -1,11 +1,14 @@
 import unittest
 from app import app
 import json
+from app.models.users import *
 
 
 class TestProductViews(unittest.TestCase):
     def setUp(self):
         self.client = app.test_client()
+        self.user_record = Users(1,'lubwama','lubwama1','true')
+        return self.user_record
 
     def test_user_creation(self):
 	# Tests that the user already exists
@@ -89,6 +92,43 @@ class TestProductViews(unittest.TestCase):
     	self.assertTrue(response.content_type =='application/json')
     	self.assertEqual(response.status_code,200)
     	self.assertNotEqual(response.status_code,500)
+
+
+    def test_user_id(self):
+        # Tests that the id is equal to the given id
+        self.assertEqual(self.user_record.user_id,1)
+        self.assertNotEqual(self.user_record.user_id, 9)
+        self.assertNotEqual(self.user_record.user_id, "str")
+        self.assertNotEqual(self.user_record.user_id, 0)
+
+    def test_user_id_data_type(self):
+        self.assertNotIsInstance(self.user_record.user_id, str)
+        self.assertNotIsInstance(self.user_record.user_id, float)
+        self.assertIsInstance(self.user_record.user_id, int)
+
+        
+    def test_username(self):
+        '''tests the product name given in the new user_record'''
+        self.assertEqual(self.user_record.username, 'lubwama')
+        self.assertNotEqual(self.user_record.username, 'code')
+
+    def test_username_datatype(self):
+        '''tests the datatype of the username'''
+        self.assertNotIsInstance(self.user_record.username, int)
+        self.assertNotIsInstance(self.user_record.username, float)
+        self.assertIsInstance(self.user_record.username, str)
+
+    def test_password(self):
+        '''Tests the name of the prod_category'''
+        self.assertEqual(self.user_record.password, 'lubwama1')
+        self.assertNotEqual(self.user_record.password, 'lubwama')
+
+    def test_password_datatype(self):
+        '''Tessts the datatype of the prod_category'''
+        self.assertNotIsInstance(self.user_record.password, int)
+        self.assertNotIsInstance(self.user_record.password, float)
+        self.assertIsInstance(self.user_record.password, str)
+
 
 
 
