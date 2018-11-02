@@ -6,6 +6,7 @@ from app.views.pro_views import product
 from flask_jwt_extended import JWTManager
 from app.views.sale_views import sale
 from app.models.login import get_token
+from app.views.category_views import category
 import datetime
 
 app = Flask(__name__)
@@ -13,6 +14,7 @@ app.register_blueprint(records)
 app.register_blueprint(user)
 app.register_blueprint(product)
 app.register_blueprint(sale)
+app.register_blueprint(category)
 app.register_blueprint(get_token)
 jwt = JWTManager(app)
 app.config['JWT_SECRET_KEY'] = 'lubwama'

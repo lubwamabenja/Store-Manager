@@ -10,7 +10,8 @@ class MyDatabase():
                 self.db = 'test_database'
             else:
                 self.db = 'Store_db'
-            self.conn =  psycopg2.connect("dbname=Store_db user=lubwama password=lubwama1 host=localhost")
+            connection = '''dbname={} user=lubwama password=lubwama1'''
+            self.conn = psycopg2.connect(connection.format(self.db))
             self.cur = self.conn.cursor()
             self.conn.autocommit =True
             print(self.db)
@@ -53,8 +54,46 @@ class MyDatabase():
     def set_dafault_admin(self):
         password = generate_password_hash('lubwama1',method='sha256')
         self.cur.execute("\
-        INSERT INTO Users(username,password,admin) VALUES(%s,%s,%s)",('lubwama',password,True))
+        INSERT INTO Users(username,password,admin) VALUES(%s,%s,%s)",('lubwama',password,'true'))
         print("Default admin is set")
+
+    def select(self, table, column, value):
+        sql = """
+        SELECT * FROM {} WHERE {}='{}';
+        """.format(table, column, value)
+        self.cur.execute(sql)
+        record= self.cur.fetchone()
+
+        return record
+
+    def select_all(self,table):
+        sql = '''SELECT * FROM {};'''.format(table)
+        self.cur.execute(sql)
+        records = self.cur.fetchall()
+        return records
+
+    def update(self,table,property,value1,column,value2):
+        sql = '''UPDATE {} SET {} = '{}' WHERE {} = '{}';'''.format(table,property,value1,column,value2)
+        self.cur.execute(sql)
+
+    def delete(self, table, column, value):
+        sql = """
+        DELETE FROM {} WHERE {}='{}';
+        """.format(table, column, value)
+        self.cur.execute(sql)
+
+    def delete_all(self,table,column,value):
+        sql = '''DELETE  FROM {} WHERE {} = '{}';'''.format(table,column,value)
+        self.cur.execute(sql)
+       
+    
+
+
+
+
+
+
+
       
         
       

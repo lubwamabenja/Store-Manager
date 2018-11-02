@@ -18,12 +18,12 @@ db = MyDatabase()
 @product.route('/v2/products',methods=['GET'])
 @jwt_required
 def get_all_products():
-	db.cur.execute("SELECT * FROM Products")
-	products = db.cur.fetchall()
-
-	if not products:
-		return jsonify({'message': 'No products have been added to the database'})
-
+	current_user = get_jwt_identity()
+	if not current_user:
+		return jsonify({'message':'you are not logged in yet'})
+	elif not db.select_all('Products'):
+		return jsonify({'users' : 'There are no products in the database'})
+	products =db.select_all('Products')
 	return jsonify({'products' : products})
 
 
@@ -35,6 +35,19 @@ def create_products():
 	prod_quantity = data['prod_quantity']
 	unit_cost = data['unit_cost']
 	category_name = data['category_name']
+	if not prod_name or not isinstance(prod_name,str) or prod_name.isspace() :
+			return jsonify({'message':'prod_name should be a string and should no be empty'})
+		
+	elif not prod_quantity or not isinstance(prod_quantity,int):
+			return jsonify({'message':'prod_quantity should be an integer and not empty'})
+
+	elif not unit_cost or not isinstance(unit_cost,int):
+			return jsonify({'message':'unit_cost should be an integer and not empty'})
+	elif not category_name or not isinstance(category_name,str):
+			return jsonify({'message':'category_name should be a string and should no be empty'})
+
+	elif  db.select('Products','prod_name',prod_name):
+			return jsonify({'message':'product already exists'})
 
 	db.cur.execute("INSERT INTO Products(prod_name,prod_quantity,unit_cost,category_name)\
 		           VALUES (%s,%s,%s,%s)",(prod_name,prod_quantity,unit_cost,category_name))
@@ -51,12 +64,11 @@ def get_one_product_by_id(prod_id):
 	current_user = get_jwt_identity()
 	if not current_user:
 		return jsonify({'message':'you are not logged in yet'})
-	sql = """SELECT * FROM Products WHERE prod_id = %s"""
-	db.cur.execute(sql,(prod_id))
-	product = db.cur.fetchone()
-	if not products:
+	elif not db.select('Products','prod_id',prod_id):
 		return jsonify({'message' : 'No product found!'})
-	return jsonify({'products':product})
+	product = db.select('Products','prod_id',prod_id)
+	return jsonify({'product':product })
+
 
 
 
@@ -66,16 +78,28 @@ def get_one_product_by_id(prod_id):
 @product.route('/v2/products/<int:prod_id>',methods=['PUT'])
 @jwt_required
 def modify_product(prod_id):
-
-	db.cur.execute("SELECT * FROM Products WHERE prod_id = prod_id")
-	product = db.cur.fetchone()
-	if not product:
-		return jsonify({'message' : 'No product found!'})
-
 	data = request.get_json()
 	prod_name = data['prod_name']
-	db.cur.execute("UPDATE Users SET  prod_name= %s  WHERE user_id=user_id",(prod_name))
+	prod_quantity = data['prod_quantity']
+	unit_cost = data['unit_cost']
+	category_name = data['category_name']
+	if not prod_name or not isinstance(prod_name,str) or prod_name.isspace() :
+			return jsonify({'message':'prod_name should be a string and should no be empty'})
+		
+	elif not prod_quantity or not isinstance(prod_quantity,int):
+			return jsonify({'message':'prod_quantity should be an integer and not empty'})
 
+	elif not unit_cost or not isinstance(unit_cost,int):
+			return jsonify({'message':'unit_cost should be an integer and not empty'})
+	elif not category_name or not isinstance(category_name,str):
+			return jsonify({'message':'category_name should be a string and should no be empty'})
+
+	elif  db.select('Products','prod_name',prod_name):
+			return jsonify({'message':'product with that name  already exists'})
+
+	db.cur.execute("UPDATE Products SET {} ='{}',{} ='{}',{} ='{}',{} ='{}'\
+		           WHERE {} = {}".format('prod_name',prod_name,'prod_quantity',prod_quantity,\
+		           	'unit_cost',unit_cost,'category_name',category_name,'prod_id',prod_id))
 
 	return jsonify({'message':'Product has been modified'})
 
@@ -85,12 +109,10 @@ def modify_product(prod_id):
 @product.route('/v2/products/<prod_id>',methods=['DELETE'])
 @jwt_required
 def delete_product(prod_id):
-
-	db.cur.execute("SELECT * FROM Products WHERE prod_id = prod_id")
-	product = db.cur.fetchone()
-	if not product:
+	current_user = get_jwt_identity()
+	if not current_user:
+		return jsonify({'message':'you are not logged in yet'})
+	elif not db.select('Products','prod_id',prod_id):
 		return jsonify({'message' : 'No product found!'})
-	
-	db.cur.execute("DELETE FROM Products WHERE prod_id = prod_id")
-	return jsonify({'message':'Product has been deleted'})
-
+	response = db.delete('Products','prod_id',prod_id)
+	return jsonify({'message','product has been deleted'})
