@@ -8,6 +8,10 @@ class MyDatabase():
         try:
             if os.getenv('test_env') == 'testing':
                 self.db = 'test_database'
+            elif os.getenv('heroku_env') == 'heroku':
+                self.db = os.getenv('DATABASE_URL')
+
+
             else:
                 self.db = 'Store_db'
             connection = '''dbname={} user=lubwama password=lubwama1'''
@@ -97,19 +101,7 @@ class MyDatabase():
     def delete_all(self,table,column,value):
         sql = '''DELETE  FROM {} WHERE {} = '{}';'''.format(table,column,value)
         self.cur.execute(sql)
-       
-    
 
-
-
-
-
-
-
-      
-        
-      
-        
 
 if __name__ == '__main__':
     db = MyDatabase()
