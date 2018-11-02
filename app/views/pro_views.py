@@ -94,9 +94,6 @@ def modify_product(prod_id):
 	elif not category_name or not isinstance(category_name,str):
 			return jsonify({'message':'category_name should be a string and should no be empty'})
 
-	elif  db.select('Products','prod_name',prod_name):
-			return jsonify({'message':'product with that name  already exists'})
-
 	db.cur.execute("UPDATE Products SET {} ='{}',{} ='{}',{} ='{}',{} ='{}'\
 		           WHERE {} = {}".format('prod_name',prod_name,'prod_quantity',prod_quantity,\
 		           	'unit_cost',unit_cost,'category_name',category_name,'prod_id',prod_id))
@@ -115,4 +112,4 @@ def delete_product(prod_id):
 	elif not db.select('Products','prod_id',prod_id):
 		return jsonify({'message' : 'No product found!'})
 	response = db.delete('Products','prod_id',prod_id)
-	return jsonify({'message','product has been deleted'})
+	return jsonify({'message':'product has been deleted'})

@@ -38,8 +38,6 @@ def get_all_sales():
 @sale.route('/v2/sales',methods=['POST'])
 @jwt_required
 def create_sales():
-	try:
-
 		current_user = get_jwt_identity()
 		if not current_user:
 			return jsonify({'message':'you are not logged in yet'})
@@ -47,7 +45,11 @@ def create_sales():
 		data = request.get_json()
 		prod_name = data['prod_name']
 		prod_quantity = data['prod_quantity']
-		db.cur.execute("SELECT unit_cost,prod_quantity FROM Products WHERE prod_name = %s",[prod_name])
+		attendant = data['attendant']
+		if  not db.select('Products','prod_name',prod_name):
+			return jsonify({'message':' product doesnot exist'})
+		sql = """SELECT unit_cost,prod_quantity FROM Products WHERE prod_name = '{}'""".format(prod_name)
+		db.cur.execute(sql)
 		details = db.cur.fetchone()
 		total_cost = prod_quantity * details[0]
 		if details[1] < prod_quantity:
@@ -56,13 +58,13 @@ def create_sales():
 			balance = details[1] - prod_quantity
 		sql = """UPDATE Products SET prod_quantity= %s WHERE prod_name = %s"""
 		db.cur.execute(sql,(balance,prod_name))
-		db.cur.execute("INSERT INTO Sales(prod_name,prod_quantity)\
-		VALUES (%s,%s)",(prod_name,prod_quantity))
+		sql = """INSERT INTO Sales(prod_name,prod_quantity,attendant)\
+		VALUES ('{}','{}','{}')""".format(prod_name,prod_quantity,attendant)
+		db.cur.execute(sql)
+		
 		return jsonify({'message' : "sale has been created" ,'total_cost':total_cost}),201
 
-	except:
-		return jsonify({'message':'product is not in stock'})
-
+	
 
 
 
@@ -100,6 +102,8 @@ def modify_sale(sale_id):
 		data = request.get_json()
 		prod_name = data['prod_name']
 		prod_quantity = data['prod_quantity']
+		if  not db.select('Products','prod_name',prod_name):
+			return jsonify({'message':' product doesnot exist in database'})
 		sql ="""UPDATE Sales SET  prod_name = %s,prod_quantity = %s  WHERE sale_id = %s"""
 		db.cur.execute(sql,(prod_name,prod_quantity,sale_id))
 		return jsonify({'message':'sale has been modified'})

@@ -109,7 +109,7 @@ def delete_user(user_id):
 	elif  db.select('Users','admin','true'):
 			return jsonify({'message':'you cannot delete an admin'})
 	response = db.delete('Users','user_id',user_id)
-	return jsonify({'attendant has been deleted'})
+	return jsonify({'message':'attendant has been deleted'})
 
 	
 
